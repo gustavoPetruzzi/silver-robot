@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import urllib2
-
-url_adress = "http://www.bna.com.ar/Cotizador/HistoricoPrincipales?id=billetes&fecha=09/03/2017&filtroEuro=0&filtroDolar=1"
+fecha = "21/11/2016" #Aca valido la fecha
+url_adress = "http://www.bna.com.ar/Cotizador/HistoricoPrincipales?id=billetes&fecha=" + fecha+"&filtroEuro=0&filtroDolar=1"
 
 page = urllib2.urlopen(url_adress)
 
@@ -9,6 +9,7 @@ soup = BeautifulSoup(page, "html.parser")
 table = soup.find('tbody')
 rows = table.find_all('tr')
 for tr in rows:
+#Aca creo la lista con las cotizaciones.
     cols = tr.find_all('td')
     p = cols[0].text.strip()
     d = cols[1].text.strip()
