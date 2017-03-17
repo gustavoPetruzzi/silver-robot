@@ -11,7 +11,7 @@ class cotizacion:
         
 def validarFecha(fecha):
     try:
-        print datetime.strptime(fecha, '%d/%m/%Y')
+        datetime.strptime(fecha, '%d/%m/%Y')
 		
     except ValueError:
 		raise ValueError("Formato incorrecto de fecha")
